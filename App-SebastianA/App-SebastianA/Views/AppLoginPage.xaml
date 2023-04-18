@@ -20,7 +20,7 @@
                     FontSize="25" CornerRadius="10" Clicked="BtnSignUp_Clicked"/>
             <Label x:Name="LblPasswordRecovery" Text="Recuperar contrasena">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="LblPasswordRecovery"/>
+                    <TapGestureRecognizer Tapped="LblPasswordRecovery_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>

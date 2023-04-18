@@ -60,11 +60,6 @@ namespace App_SebastianA.Views
             }
         }
 
-        private async void LblPasswordRecovery(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new PasswordRecoveryPage());
-        }
-
         private async void BtnSignUp_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignUpPage());
@@ -80,6 +75,11 @@ namespace App_SebastianA.Views
             {
                 TxtContra.IsPassword = true;
             }
+        }
+
+        private async void LblPasswordRecovery_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PasswordRecoveryPage());
         }
     }
 }

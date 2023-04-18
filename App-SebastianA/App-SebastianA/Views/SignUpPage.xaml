@@ -37,10 +37,7 @@
                     </Trigger>
                 </Entry.Triggers>
             </Entry>
-
-            <Picker x:Name="PckrEstadoUsuario" Title="Seleccione el estado del usuario" 
-                    ItemDisplayBinding="{Binding EstadoUs}"/>
-
+            
             <Picker x:Name="PckrTipoUsuario" Title="Seleccione el tipo de usuario" 
                     ItemDisplayBinding="{Binding DescTipoUs}"/>
 

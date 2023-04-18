@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Net;
-using System.Threading.Tasks;
+using System.Text;
 using RestSharp;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace App_SebastianA.Models
 {
-    public class Usuario
+    public class CodigoRecuperacion
     {
         public RestRequest Request { get; set; }
-        public Usuario() { }
-        public int Idus { get; set; }
-        public string NombreUs { get; set; }
-        public string ContraUs { get; set; }
-        public bool EstadoUs { get; set; }
-        public async Task<bool> ValidateLogin()
+        public int Idcod { get; set; }
+        public string Codigo { get; set; }
+        public DateTime FechaCod { get; set; }
+        public bool EstadoCod { get; set; }
+        public string CorreoElec { get; set; }
+
+        public async Task<bool> ValidateRecoveryCode()
         {
             try
             {
                 string RouteSuffix = string.Format(
-                    "Users/ValidateUserLogin?pUserName={0}&pPassword={1}",
-                    this.NombreUs, this.ContraUs);
+                    "CodigoRecuperacion/ValidateCode?pEmail={0}&pRecoveryCode={1}",
+                    this.CorreoElec, this.Codigo);
                 string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
                 RestClient client = new RestClient(URL);
                 Request = new RestRequest(URL, Method.Get);
@@ -48,11 +49,11 @@ namespace App_SebastianA.Models
             }
         }
 
-        public async Task<bool> AddUser()
+        public async Task<bool> AddRecoveryCode()
         {
             try
             {
-                string RouteSuffix = string.Format("Usuarios");
+                string RouteSuffix = string.Format("CodigoRecupercions");
                 string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
                 RestClient client = new RestClient(URL);
                 Request = new RestRequest(URL, Method.Post);
@@ -75,40 +76,11 @@ namespace App_SebastianA.Models
             catch (Exception ex)
             {
                 string ErrorMsg = ex.Message;
-                throw;
-            }
-        }
-
-        public async Task<List<Usuario>> GetAllUserNameList(string pNombre)
-        {
-            try
-            {
-                string RouteSuffix = string.Format("Usuario");
-                string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
-                RestClient client = new RestClient(URL);
-                Request = new RestRequest(URL, Method.Get);
-                Request.AddHeader(Services.APIConnection.ApiKeyName,
-                    Services.APIConnection.ApiKeyValue);
-                Request.AddHeader(GlobalObjects.ContentType, GlobalObjects.MimeType);
-                RestResponse response = await client.ExecuteAsync(Request);
-                HttpStatusCode statusCode = response.StatusCode;
-                if (statusCode == HttpStatusCode.OK)
-                {
-                    var NombreUsuarioLista = JsonConvert.DeserializeObject<List<Usuario>>(pNombre);
-                    return NombreUsuarioLista;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                string ErrorMsg = ex.Message;
 
                 throw;
             }
         }
+
 
 
     }
