@@ -25,27 +25,35 @@
                     <Button Grid.Row="0" Grid.Column="0" x:Name="BtnCancionManagement" 
                             Text="Canciones" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
-                            CornerRadius="20"/>
+                            CornerRadius="20" Clicked="BtnCancionManagement_Clicked"/>
                     <Button Grid.Row="0" Grid.Column="1" x:Name="BtnAlbumManagement"
                             Text="Albumes" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
-                            CornerRadius="20"/>
+                            CornerRadius="20" Clicked="BtnAlbumesManagement_Clicked"/>
                     <Button Grid.Row="1" Grid.Column="0" x:Name="BtnArtistaManagement" 
                             Text="Artistas" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
-                            CornerRadius="20"/>
+                            CornerRadius="20" Clicked="BtnArtistasManagement_Clicked"/>
                     <Button Grid.Row="1" Grid.Column="1" x:Name="BtnBandaManagement"
                             Text="Bandas" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
-                            CornerRadius="20"/>
+                            CornerRadius="20" Clicked="BtnBandasManagement_Clicked"/>
                     <Button Grid.Row="2" Grid.Column="0" x:Name="BtnGeneroManagement" 
                             Text="Genero" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
-                            CornerRadius="20"/>
+                            CornerRadius="20" Clicked="BtnGeneroManagement_Clicked"/>
                     <Button Grid.Row="2" Grid.Column="1" x:Name="BtnUsuarioManagement"
                             Text="Usuario" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
-                            CornerRadius="20"/>
+                            CornerRadius="20" Clicked="BtnUsuarioManagement_Clicked"/>
+                    <Button Grid.Row="3" Grid.Column="0" x:Name="BtnLogMusicaManagement"
+                            Text="Nuevo Log" BackgroundColor="LightSlateGray"
+                            HeightRequest="130" WidthRequest="100" FontSize="17"
+                            CornerRadius="20" Clicked="BtnLogMusicaManagement_Clicked"/>
+                    <Button Grid.Row="3" Grid.Column="1" x:Name="BtnCancelar"
+                            Text="Ver Logs" BackgroundColor="LightGray"
+                            HeightRequest="130" WidthRequest="100" FontSize="17"
+                            CornerRadius="20" Clicked="BtnVerLogsManagement_Clicked"/>
                 </Grid>
             </FlexLayout>
         </ScrollView>

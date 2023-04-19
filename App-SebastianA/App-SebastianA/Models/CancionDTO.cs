@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using System.Threading.Tasks;
-using RestSharp;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace App_SebastianA.Models
 {
-    public class Cancion
+    public class CancionDTO
     {
         public RestRequest Request { get; set; }
-        public Cancion() { }
         public int Idcan { get; set; }
         public int? CanXalbFk { get; set; }
         public int CanXgenFk { get; set; }
@@ -26,42 +25,12 @@ namespace App_SebastianA.Models
         public virtual Banda CanXbanFkNavigation { get; set; }
         public virtual Genero CanXgenFkNavigation { get; set; }
 
-        public async Task<bool> AddCancion()
+        public async Task<CancionDTO> GetCancionData(string nombre)
         {
             try
             {
-                string RouteSuffix = string.Format("Cancion");
-                string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
-                RestClient client = new RestClient(URL);
-                Request = new RestRequest(URL, Method.Post);
-                Request.AddHeader(Services.APIConnection.ApiKeyName,
-                    Services.APIConnection.ApiKeyValue);
-                Request.AddHeader(GlobalObjects.ContentType, GlobalObjects.MimeType);
-                string SerializedModel = JsonConvert.SerializeObject(this);
-                Request.AddBody(SerializedModel, GlobalObjects.MimeType);
-                RestResponse response = await client.ExecuteAsync(Request);
-                HttpStatusCode statusCode = response.StatusCode;
-                if (statusCode == HttpStatusCode.Created)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                string ErrorMsg = ex.Message;
-                throw;
-            }
-        }
-
-        public async Task<List<Cancion>> GetAllCancionList()
-        {
-            try
-            {
-                string RouteSuffix = string.Format("Cancions");
+                string RouteSuffix = string.Format(
+                    "Cancions/GetCancionData?NombreCan={0}", nombre);
                 string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
                 RestClient client = new RestClient(URL);
                 Request = new RestRequest(URL, Method.Get);
@@ -72,8 +41,9 @@ namespace App_SebastianA.Models
                 HttpStatusCode statusCode = response.StatusCode;
                 if (statusCode == HttpStatusCode.OK)
                 {
-                    var CancionLista = JsonConvert.DeserializeObject<List<Cancion>>(response.Content);
-                    return CancionLista;
+                    var list = JsonConvert.DeserializeObject<List<CancionDTO>>(response.Content);
+                    var item = list[0];
+                    return item;
                 }
                 else
                 {
@@ -86,8 +56,7 @@ namespace App_SebastianA.Models
 
                 throw;
             }
-        }
-
+        }    
 
 
 
