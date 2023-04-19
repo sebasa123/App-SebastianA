@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App_SebastianA.Views.SignUpPage">
     <ContentPage.Content>
-        <StackLayout Padding="20,20,20,20" BackgroundColor="WhiteSmoke">
+        <StackLayout Padding="20,20,20,20" BackgroundColor="white">
             
             <Entry x:Name="TxtNombre" Placeholder="Nombre" Keyboard="Text">
                 <Entry.Triggers>
@@ -42,10 +42,9 @@
                     ItemDisplayBinding="{Binding DescTipoUs}"/>
 
             <StackLayout Padding="0,200">
-                <Button x:Name="BtnApply" Text="Agregar" BackgroundColor="LightGreen" 
-                    TextColor="White" FontAttributes="Bold" CornerRadius="20" Clicked="BtnApply_Clicked"/>
-                <Button x:Name="BtnCancel" Text="Cancelar" BackgroundColor="LightPink" 
-                    TextColor="White" CornerRadius="20" Clicked="BtnCancel_Clicked"/>
+                <Button x:Name="BtnApply" Text="Agregar" BackgroundColor="LightSlateGray" 
+                    TextColor="black" FontAttributes="Bold" CornerRadius="20" Clicked="BtnApply_Clicked"/>
+            
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

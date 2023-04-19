@@ -23,27 +23,27 @@
                     </Grid.ColumnDefinitions>
 
                     <Button Grid.Row="0" Grid.Column="0" x:Name="BtnCancionManagement" 
-                            Text="Canciones" BackgroundColor="LightGreen"
+                            Text="Canciones" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
                             CornerRadius="20"/>
                     <Button Grid.Row="0" Grid.Column="1" x:Name="BtnAlbumManagement"
-                            Text="Albumes" BackgroundColor="LightBlue"
+                            Text="Albumes" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
                             CornerRadius="20"/>
                     <Button Grid.Row="1" Grid.Column="0" x:Name="BtnArtistaManagement" 
-                            Text="Artistas" BackgroundColor="LightGoldenrodYellow"
+                            Text="Artistas" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
                             CornerRadius="20"/>
                     <Button Grid.Row="1" Grid.Column="1" x:Name="BtnBandaManagement"
-                            Text="Bandas" BackgroundColor="LightCoral"
+                            Text="Bandas" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
                             CornerRadius="20"/>
                     <Button Grid.Row="2" Grid.Column="0" x:Name="BtnGeneroManagement" 
-                            Text="Genero" BackgroundColor="LightCyan"
+                            Text="Genero" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
                             CornerRadius="20"/>
                     <Button Grid.Row="2" Grid.Column="1" x:Name="BtnUsuarioManagement"
-                            Text="Usuario" BackgroundColor="LightPink"
+                            Text="Usuario" BackgroundColor="GhostWhite"
                             HeightRequest="130" WidthRequest="100" FontSize="17"
                             CornerRadius="20"/>
                 </Grid>

@@ -4,7 +4,7 @@
              x:Class="App_SebastianA.Views.AppLoginPage"
              Shell.NavBarIsVisible="False"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Gainsboro">
+             BackgroundColor="white">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Padding="50,50,50,250">
             <Entry x:Name="TxtNombre" Placeholder="Nombre de usuario" FontSize="25" 
@@ -14,15 +14,11 @@
             <Switch x:Name="SwVerContra" IsToggled="False" 
                     Toggled="SwVerContra_Toggled"/>
             
-            <Button x:Name="BtnLogin" Text="Log in" BackgroundColor="LightGreen" 
+            <Button x:Name="BtnLogin" Text="Log in" BackgroundColor="LightSlateGray" 
                     FontSize="25" CornerRadius="10" Clicked="BtnLogIn_Clicked"/>
-            <Button x:Name="BtnSignUp" Text="Sign up" BackgroundColor="LightSkyBlue" 
+            <Button x:Name="BtnSignUp" Text="Sign up" BackgroundColor="LightGray" 
                     FontSize="25" CornerRadius="10" Clicked="BtnSignUp_Clicked"/>
-            <Label x:Name="LblPasswordRecovery" Text="Recuperar contrasena">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="LblPasswordRecovery_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
