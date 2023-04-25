@@ -13,7 +13,7 @@ namespace App_SebastianA.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CancionManagementPage : ContentPage
 	{
-		CancionViewModel viewModel;
+		UserViewModel viewModel;
 		public CancionManagementPage ()
 		{
 			InitializeComponent ();
@@ -21,7 +21,7 @@ namespace App_SebastianA.Views
             LoadArtistaList();
             LoadBandaList();
             LoadGeneroList();
-            BindingContext = viewModel = new CancionViewModel();
+            BindingContext = viewModel = new UserViewModel();
         }
 
         private async void LoadAlbumList()
@@ -47,8 +47,10 @@ namespace App_SebastianA.Views
             Artista SelectedArtista = PckrArt.SelectedItem as Artista;
             Banda SelectedBanda = PckrBan.SelectedItem as Banda;
             Genero SelectedGenero = PckrGen.SelectedItem as Genero;
-            bool R = await viewModel.AddCancion(TxtID.Text.Trim(), TxtNombre.Text.Trim(),
-                TxtDuracion.Text.Trim(), TxtCalificacion.Text.Trim(), SelectedAlbum.Idalb,
+            int Duracion = int.Parse(TxtDuracion.Text.Trim());
+            int Calificacion = int.Parse(TxtCalificacion.Text.Trim());
+            bool R = await viewModel.AddCancion(TxtNombre.Text.Trim(),
+                Duracion, Calificacion, SelectedAlbum.Idalb,
                 SelectedArtista.Idart, SelectedBanda.Idban, SelectedGenero.Idgen);
 
             if (R)
@@ -60,6 +62,11 @@ namespace App_SebastianA.Views
             {
                 await DisplayAlert(": /", "Algo salio mal", "OK");
             }
+        }
+
+        private async void BtnCancelar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

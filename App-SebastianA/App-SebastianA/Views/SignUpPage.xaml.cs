@@ -18,19 +18,11 @@ namespace App_SebastianA.Views
         {
             InitializeComponent();
             BindingContext = viewModel = new UserViewModel();
-            LoadTipoUsuarioList();
-        }
-
-        private async void LoadTipoUsuarioList() 
-        {
-            PckrTipoUsuario.ItemsSource = await viewModel.GetTipoUsuario();
         }
 
         private async void BtnApply_Clicked(object sender, EventArgs e)
         {
-            TipoUsuario SelectedTipoUsuario = PckrTipoUsuario.SelectedItem as TipoUsuario;
-            bool R = await viewModel.AddUsuario(TxtNombre.Text.Trim(), TxtContra.Text.Trim(),
-                TxtID.Text.Trim(), SelectedTipoUsuario.IdtipoUs);
+            bool R = await viewModel.AddUsuario(TxtNombre.Text.Trim(), TxtContra.Text.Trim());
 
             if (R)
             {
@@ -43,7 +35,7 @@ namespace App_SebastianA.Views
             }
         }
 
-        private async void BtnCancel_Clicked(object sender, EventArgs e)
+        private async void BtnCancelar_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }

@@ -13,7 +13,7 @@ namespace App_SebastianA.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LogManagementPage : ContentPage
 	{
-        LogViewModel viewModel;
+        UserViewModel viewModel;
         public LogManagementPage()
 		{
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace App_SebastianA.Views
             LoadArtistaList();
             LoadBandaList();
             LoadGeneroList();
-            BindingContext = viewModel = new LogViewModel();
+            BindingContext = viewModel = new UserViewModel();
 		}
 
         private async void LoadCancionList()
@@ -58,8 +58,8 @@ namespace App_SebastianA.Views
             Artista SelectedArtista = PckrArt.SelectedItem as Artista;
             Banda SelectedBanda = PckrBan.SelectedItem as Banda;
             Genero SelectedGenero = PckrGen.SelectedItem as Genero;
-            bool R = await viewModel.AddLog(TxtID.Text.Trim(), TxtDesc.Text.Trim(),
-                TxtID.Text.Trim(), SelectedCancion.Idcan, SelectedAlbum.Idalb,
+            bool R = await viewModel.AddLog(TxtDesc.Text.Trim(),
+                SelectedCancion.Idcan, SelectedAlbum.Idalb,
                 SelectedArtista.Idart, SelectedBanda.Idban, SelectedGenero.Idgen);
 
             if (R)

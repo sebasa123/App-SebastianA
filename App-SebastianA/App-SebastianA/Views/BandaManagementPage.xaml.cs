@@ -13,12 +13,12 @@ namespace App_SebastianA.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BandaManagementPage : ContentPage
 	{
-		BandaViewModel viewModel;
+		UserViewModel viewModel;
 		public BandaManagementPage()
 		{
 			InitializeComponent();
             LoadArtistaList();
-            BindingContext = viewModel = new BandaViewModel();
+            BindingContext = viewModel = new UserViewModel();
         }
         private async void LoadArtistaList()
         {
@@ -28,7 +28,7 @@ namespace App_SebastianA.Views
         private async void BtnApply_Clicked(object sender, EventArgs e)
         {
             Artista SelectedArtista = PckrArt.SelectedItem as Artista;
-            bool R = await viewModel.AddBanda(TxtID.Text.Trim(), TxtNombre.Text.Trim(),
+            bool R = await viewModel.AddBanda(TxtNombre.Text.Trim(),
                 TxtDesc.Text.Trim(), SelectedArtista.Idart);
 
             if (R)
@@ -42,17 +42,9 @@ namespace App_SebastianA.Views
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
+        private async void BtnCancelar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace App_SebastianA.Models
             }
         }
 
-        public async Task<bool> AddUser()
+        public async Task<bool> AddUsuario()
         {
             try
             {

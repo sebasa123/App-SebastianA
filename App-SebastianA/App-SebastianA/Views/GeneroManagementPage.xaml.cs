@@ -12,16 +12,16 @@ namespace App_SebastianA.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GeneroManagementPage : ContentPage
 	{
-		GeneroViewModel viewModel;
+		UserViewModel viewModel;
 		public GeneroManagementPage()
 		{
 			InitializeComponent();
+			BindingContext = viewModel = new UserViewModel();  
 		}
 
         private async void BtnApply_Clicked(object sender, EventArgs e)
         {
-			bool R = await viewModel.AddGenero(TxtID.Text.Trim(),
-				TxtNombre.Text.Trim(), TxtDesc.Text.Trim());
+			bool R = await viewModel.AddGenero(TxtNombre.Text.Trim(), TxtDesc.Text.Trim());
 			if (R)
 			{
                 await DisplayAlert(": )", "Genero agregado correctamente", "OK");
@@ -31,6 +31,11 @@ namespace App_SebastianA.Views
 			{
                 await DisplayAlert(": /", "Algo salio mal", "OK");
             }
+        }
+
+        private async void BtnCancelar_Clicked(object sender, EventArgs e)
+        {
+			await Navigation.PopAsync();
         }
     }
 }

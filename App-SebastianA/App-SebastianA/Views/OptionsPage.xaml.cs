@@ -45,10 +45,10 @@ namespace App_SebastianA.Views
             await Navigation.PushAsync(new MyLogListPage());
         }
 
-        //private async void BtnUsuarioManagement_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new UsuarioManagementPage());
-        //}
+        private async void BtnUsuarioManagement_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UsuarioManagementPage());
+        }
 
     }
 }

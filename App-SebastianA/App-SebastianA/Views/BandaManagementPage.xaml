@@ -5,17 +5,6 @@
     <ContentPage.Content>
         <StackLayout Padding="20,20,20,20" BackgroundColor="white">
 
-            <Entry x:Name="TxtID" Placeholder="ID" Keyboard="Numeric">
-                <Entry.Triggers>
-                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="Black"/>
-                        <Setter Property="TextColor" Value="White"/>
-                        <Setter Property="FontAttributes" Value="Bold"/>
-                        <Setter Property="FontSize" Value="25"/>
-                    </Trigger>
-                </Entry.Triggers>
-            </Entry>
-
             <Entry x:Name="TxtNombre" Placeholder="Nombre">
                 <Entry.Triggers>
                     <Trigger TargetType="Entry" Property="IsFocused" Value="True">

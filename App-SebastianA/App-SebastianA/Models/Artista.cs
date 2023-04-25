@@ -21,11 +21,11 @@ namespace App_SebastianA.Models
         public virtual ICollection<Album> Albums { get; set; }
         public virtual ICollection<Banda> Banda { get; set; }
         public virtual ICollection<Cancion> Cancions { get; set; }
-        public async Task<bool> AddAlbum()
+        public async Task<bool> AddArtista()
         {
             try
             {
-                string RouteSuffix = string.Format("Banda");
+                string RouteSuffix = string.Format("Artista");
                 string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
                 RestClient client = new RestClient(URL);
                 Request = new RestRequest(URL, Method.Post);

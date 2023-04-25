@@ -13,27 +13,27 @@ namespace App_SebastianA.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AlbumManagementPage : ContentPage
 	{
-		AlbumViewModel viewModel;
+        UserViewModel vm;
 		public AlbumManagementPage()
 		{
 			InitializeComponent();
             LoadArtistaList();
             LoadBandaList();
             LoadGeneroList();
-            BindingContext = viewModel = new AlbumViewModel();
+            BindingContext = vm = new UserViewModel();
         }
 
         private async void LoadArtistaList()
         {
-            PckrArt.ItemsSource = await viewModel.GetArtista();
+            PckrArt.ItemsSource = await vm.GetArtista();
         }
         private async void LoadBandaList()
         {
-            PckrBan.ItemsSource = await viewModel.GetBanda();
+            PckrBan.ItemsSource = await vm.GetBanda();
         }
         private async void LoadGeneroList()
         {
-            PckrGen.ItemsSource = await viewModel.GetGenero();
+            PckrGen.ItemsSource = await vm.GetGenero();
         }
 
         private async void BtnApply_Clicked(object sender, EventArgs e)
@@ -41,9 +41,11 @@ namespace App_SebastianA.Views
             Artista SelectedArtista = PckrArt.SelectedItem as Artista;
             Banda SelectedBanda = PckrBan.SelectedItem as Banda;
             Genero SelectedGenero = PckrGen.SelectedItem as Genero;
-            bool R = await viewModel.AddAlbum(TxtID.Text.Trim(), TxtNombre.Text.Trim(),
-                TxtDuracion.Text.Trim(), TxtCalificacion.Text.Trim(),
-                SelectedArtista.Idart, SelectedBanda.Idban, SelectedGenero.Idgen);
+            int Duracion = int.Parse(TxtDuracion.Text.Trim());
+            int Calificacion = int.Parse(TxtCalificacion.Text.Trim());
+            bool R = await vm.AddAlbum(TxtNombre.Text.Trim(),
+                Duracion, Calificacion, SelectedArtista.Idart, 
+                SelectedBanda.Idban, SelectedGenero.Idgen);
             if (R)
             {
                 await DisplayAlert(": )", "Album agregado correctamente", "OK");
@@ -53,6 +55,11 @@ namespace App_SebastianA.Views
             {
                 await DisplayAlert(": /", "Algo salio mal", "OK");
             }
+        }
+
+        private async void BtnCancelar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

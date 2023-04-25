@@ -26,25 +26,12 @@
                     </Trigger>
                 </Entry.Triggers>
             </Entry>
-
-            <Entry x:Name="TxtID" Placeholder="ID" Keyboard="Numeric">
-                <Entry.Triggers>
-                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="Black"/>
-                        <Setter Property="TextColor" Value="White"/>
-                        <Setter Property="FontAttributes" Value="Bold"/>
-                        <Setter Property="FontSize" Value="25"/>
-                    </Trigger>
-                </Entry.Triggers>
-            </Entry>
             
-            <Picker x:Name="PckrTipoUsuario" Title="Seleccione el tipo de usuario" 
-                    ItemDisplayBinding="{Binding DescTipoUs}"/>
-
             <StackLayout Padding="0,200">
                 <Button x:Name="BtnApply" Text="Agregar" BackgroundColor="LightSlateGray" 
                     TextColor="black" FontAttributes="Bold" CornerRadius="20" Clicked="BtnApply_Clicked"/>
-            
+                <Button x:Name="BtnCancelar" Text="Cancelar" BackgroundColor="LightGray" 
+                    TextColor="black" FontAttributes="Bold" CornerRadius="20" Clicked="BtnCancelar_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -61,6 +61,41 @@ namespace App_SebastianA.Models
             }
         }
 
+        public async Task<bool> AddLog()
+        {
+            try
+            {
+                string RouteSuffix = string.Format("LogMusicas");
+                string URL = Services.APIConnection.ProductionURLPrefix + RouteSuffix;
+                RestClient client = new RestClient(URL);
+                Request = new RestRequest(URL, Method.Post);
+                Request.AddHeader(Services.APIConnection.ApiKeyName,
+                    Services.APIConnection.ApiKeyValue);
+                Request.AddHeader(GlobalObjects.ContentType, GlobalObjects.MimeType);
+                string SerializedModel = JsonConvert.SerializeObject(this);
+                Request.AddBody(SerializedModel, GlobalObjects.MimeType);
+                RestResponse response = await client.ExecuteAsync(Request);
+                HttpStatusCode statusCode = response.StatusCode;
+                if (statusCode == HttpStatusCode.Created)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                string ErrorMsg = ex.Message;
+                throw;
+            }
+        }
+
+
+
+
+
 
     }
 }
