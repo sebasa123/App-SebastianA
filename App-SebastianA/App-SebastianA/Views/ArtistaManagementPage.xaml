@@ -8,8 +8,8 @@
             <Entry x:Name="TxtID" Placeholder="ID" Keyboard="Numeric">
                 <Entry.Triggers>
                     <Trigger TargetType="Entry" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="Black"/>
-                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="BackgroundColor" Value="LightGray"/>
+                        <Setter Property="TextColor" Value="Black"/>
                         <Setter Property="FontAttributes" Value="Bold"/>
                         <Setter Property="FontSize" Value="25"/>
                     </Trigger>
@@ -19,8 +19,8 @@
             <Entry x:Name="TxtNombre" Placeholder="Nombre">
                 <Entry.Triggers>
                     <Trigger TargetType="Entry" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="Black"/>
-                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="BackgroundColor" Value="LightGray"/>
+                        <Setter Property="TextColor" Value="Black"/>
                         <Setter Property="FontAttributes" Value="Bold"/>
                         <Setter Property="FontSize" Value="25"/>
                     </Trigger>
@@ -30,8 +30,8 @@
             <Entry x:Name="TxtDesc" Placeholder="Descripcion">
                 <Entry.Triggers>
                     <Trigger TargetType="Entry" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="Black"/>
-                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="BackgroundColor" Value="LightGray"/>
+                        <Setter Property="TextColor" Value="Black"/>
                         <Setter Property="FontAttributes" Value="Bold"/>
                         <Setter Property="FontSize" Value="25"/>
                     </Trigger>

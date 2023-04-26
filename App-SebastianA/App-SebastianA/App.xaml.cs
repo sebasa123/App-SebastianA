@@ -15,6 +15,7 @@ namespace App_SebastianA
 
             DependencyService.Register<MockDataStore>();
             MainPage = new NavigationPage(new AppLoginPage());
+            //MainPage = new NavigationPage(new OptionsPage());
         }
 
         protected override void OnStart()
