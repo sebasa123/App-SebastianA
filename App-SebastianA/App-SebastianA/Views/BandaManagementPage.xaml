@@ -31,9 +31,9 @@
                     ItemDisplayBinding="{Binding NombreArt}"/>
 
             <StackLayout Padding="0,200">
-                <Button x:Name="BtnApply" Text="Agregar" BackgroundColor="LightSlateGray" 
+                <Button x:Name="BtnApply" Text="Agregar" BackgroundColor="SlateGray" 
                     TextColor="black" FontAttributes="Bold" CornerRadius="20" Clicked="BtnApply_Clicked"/>
-                <Button x:Name="BtnCancelar" Text="Cancelar" BackgroundColor="LightGray" 
+                <Button x:Name="BtnCancelar" Text="Cancelar" BackgroundColor="LightSlateGray" 
                     TextColor="black" FontAttributes="Bold" CornerRadius="20" Clicked="BtnCancelar_Clicked"/>
             </StackLayout>
         </StackLayout>
